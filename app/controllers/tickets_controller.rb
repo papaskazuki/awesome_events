@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  skip_before_action :authenticate, only: :show
   def new
     raise ActionController::RoutingError, "ログイン状態で TicketsController#new にアクセス"
   end
@@ -13,4 +14,5 @@ class TicketsController < ApplicationController
       redirect_to event, notice: "このイベントに参加表明しました"
     end
   end
+
 end
