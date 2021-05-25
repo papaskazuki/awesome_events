@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   if Rails.env.development? || Rails.env.test?
-    provider :github, "cca9b3cb12eab758febb", "05b3f0bc3d3a6c0b1a462e949fa4816648172f7f"
+    provider :github, ENV['CLIENT_ID'], ENV['CLIENT_SECRET']
   else
     provider :github,
       Rails.application.credentials.github[:client_id],
